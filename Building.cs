@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Planner
 {
@@ -10,9 +9,6 @@ namespace Planner
         private DateTime _dateConstructed;
         private string _address;
         private string _owner;
-
-
-
 
         // Public Properties
         public int Stories { get; set; }
@@ -29,18 +25,34 @@ namespace Planner
             }
         }
 
-    public Building(string Address) {
-        _address = Address;
-    }
+        public string BuildingReport
+        {
+            get
+            {
+                return $@"
+                {_address}
+                ------------
+                Designed by  {_designer}
+                Constructed on {_dateConstructed}
+                Owned by {_owner}
+                {Volume} cubic meters of space";
+            }
+        }
 
-     public void Construct() 
-     {
-        _dateConstructed  = DateTime.Now;
-    }
+        public Building(string Address)
+        {
+            _address = Address;
+        }
 
-     public void Purchase(string Name) 
-     {
-        _owner  = Name;
-    }
+        public void Construct()
+        {
+            _dateConstructed = DateTime.Now;
+        }
+
+        public void Purchase(string Name)
+        {
+            _owner = Name;
+        }
+
     }
 }
